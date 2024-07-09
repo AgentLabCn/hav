@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hav"
+version = "0.0.1"
+authors = [
+  { name="AgentLabCn", email="hezhou@ucas.ac.cn" },
+]
+description = "This HAV (hierarchical ABM validation) package helps you to comprehensively validate agent-based models."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/AgentLabCn/hav"
+"Bug Tracker" = "https://github.com/AgentLabCn/hav/issues"
