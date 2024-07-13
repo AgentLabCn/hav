@@ -73,11 +73,6 @@ class TestHAV():
         self.HAV.validate_output_level('ks test', self.att_output['A'], self.att_output['M'])
 
 if __name__=='__main__':
-
-    import hav
-    
-
-
     test=TestHAV()
     test.test_agent_level()
     test.test_model_level()
