@@ -9,9 +9,7 @@ import matplotlib.pyplot as plt
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from hav.HAV import HAV, Result
-
-
+from src.hav.HAV import HAV, Result
 
 class TestHAV():
     def __init__(self):
@@ -47,8 +45,8 @@ class TestHAV():
         self.model=Environment(parameters=benchmark_par)
 
         # initiate benchmark data
-        B_agent=pd.read_csv('src/test/data/AgentBenchmark.csv').to_dict()
-        B_model=pd.read_csv('src/test/data/ModelBenchmark.csv').to_dict()
+        B_agent=pd.read_csv('test/data/AgentBenchmark.csv').to_dict()
+        B_model=pd.read_csv('test/data/ModelBenchmark.csv').to_dict()
         self.benchmark={
             'A':{
                 'I':{att: benchmark_par[att] for att in self.att_agent['I']},
@@ -75,6 +73,11 @@ class TestHAV():
         self.HAV.validate_output_level('ks test', self.att_output['A'], self.att_output['M'])
 
 if __name__=='__main__':
+
+    import hav
+    
+
+
     test=TestHAV()
     test.test_agent_level()
     test.test_model_level()
