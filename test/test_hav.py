@@ -1,10 +1,5 @@
-from test_model import Person, Environment
-import unittest
-
-import agentpy as ap
-import numpy as np
+from test_model import Environment
 import pandas as pd
-import matplotlib.pyplot as plt
 
 import sys
 import os
@@ -15,8 +10,8 @@ class TestHAV():
     def __init__(self):
 
         # User provides a list of model parameters to be validated   
-        self.att_agent={'I':['tran_mat','init_wealth'], 'O':['ev_wealth']}
-        self.att_model={'I':['init_a_ratio','init_b_ratio','init_c_ratio'], 'O':['a_ratio','b_ratio','c_ratio']}
+        self.att_agent={'I':['tran_mat','init_wealth','con_prop'], 'O':['ev_wealth']}
+        self.att_model={'I':['init_a_ratio','init_b_ratio','init_c_ratio'], 'O':['gini','a_ratio','b_ratio','c_ratio']}
         self.att_output={'A':self.att_agent['O'], 'M':self.att_model['O']}
 
         # raw paramenters are a bit different from the benchmark

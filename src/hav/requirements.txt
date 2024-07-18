@@ -1,0 +1,6 @@
+agentpy==0.1.5
+numpy==1.25.2
+pandas==1.5.3
+pgmpy==0.1.25
+scipy==1.14.0
+statsmodels==0.14.0

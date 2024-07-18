@@ -1,16 +1,20 @@
+# basic dependecies
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-
-from scipy.stats import *
 from .utils import *
 import agentpy as ap
-import catboost
-from statsmodels.tsa.api import VAR
-from pgmpy.estimators import PC
-import emcee
-from SALib.sample import saltelli
-from SALib.analyze import sobol
+
+# other dependecies
+from scipy.stats import ks_2samp # ks test, sensitivity analysis
+from scipy.stats import moment  # statistics(MSE, variance, skewness, kurtosis)
+import catboost # surrogate analysis
+from pgmpy.estimators import PC # causal analysis
+import emcee # bayesian
+from SALib.sample import saltelli # sensitivity analysis
+from SALib.analyze import sobol # sensitivity analysis
+from statsmodels.tsa.api import VAR # causal analysis
+import matplotlib.pyplot as plt # bayesian
+
 
 def MSE(R:dict[str,list[float]], B:dict[str,list[float]], rtol:float=0.05):
     atts=R.keys() if R.keys()==B.keys() else []
@@ -22,28 +26,6 @@ def MSE(R:dict[str,list[float]], B:dict[str,list[float]], rtol:float=0.05):
               for att in atts]
     return all(report[att]['result']>0 for att in atts), details
 
-# def statistics(R:dict[str,list[float]], B:dict[str,list[float]]):
-#     atts=R.keys() if R.keys()==B.keys() else []
-#     methods=['variance','skewness','kurtosis']
-#     report=pd.DataFrame([[0 for _ in atts] for _ in methods], columns=atts, index=methods)
-#     for att in atts:
-#         # var
-#         var_R, var_B = np.var(R[att]), np.var(B[att])
-#         report[att]['variance']=1 if np.isclose(var_R, var_B) else 0
-
-#         # skewness
-#         skew_R, skew_B = moment(R[att], 3), moment(B[att], 3)
-#         report[att]['skewness']=1 if np.isclose(skew_R, skew_B) else 0
-
-#         # kurtosis
-#         kur_R, kur_B = moment(R[att], 4), moment(B[att], 4)
-#         report[att]['kurtosis']=1 if np.isclose(kur_R, kur_B) else 0
-    
-#     att_res={att:all(res>0 for res in report[att]) for att in atts}
-#     details=[f"*{att} passed all tests" if att_res[att] else \
-#             f"*{att} failed in {[method for method in methods if report[att][method]<=0]}" for att in atts]
-    
-#     return all(att_res[att]>0 for att in atts), details
 
 def variance_test(R:dict[str,list[float]], B:dict[str,list[float]], rtol:float=5e-2):
     atts=R.keys() if R.keys()==B.keys() else []
@@ -96,6 +78,7 @@ def ks_test(R:dict[str,list[float]], B:dict[str,list[float]]):
              for att in atts]
 
     return all(report[att]['p value']>0.05 for att in atts), details
+
 
 def surrogate_analysis(ABM:ap.Model, I:dict[str,list[float]], B:dict[str,list[float]], I_Range:dict[str,list[float]],\
                         iterations:int=100, level:str='agent'):
@@ -152,7 +135,6 @@ def surrogate_analysis(ABM:ap.Model, I:dict[str,list[float]], B:dict[str,list[fl
     # The model and X_train can be used for further analysis or predictions
     return model, X_train, y_train
 
-
 def causal_analysis(R:dict[str,list[float]], B:dict[str,list[float]]):
     atts=R.keys() if R.keys()==B.keys() else []
     report=pd.DataFrame([[0 for _ in atts]], columns=atts, index=['result'])
@@ -166,7 +148,7 @@ def causal_analysis(R:dict[str,list[float]], B:dict[str,list[float]]):
         model = VAR(data)
         model.fit(maxlags=15, ic='aic')
 
-        # 使用IC算法进行因果搜索
+        # 使用PC算法进行因果搜索
         pc = PC(data)
         causal_graph_R = pc.estimate(return_type="dag", variant="orig", significance_level=0.05, max_cond_vars=4)
         causal_graph_B = pc.estimate(return_type="dag", variant="orig", significance_level=0.05, max_cond_vars=4)

@@ -87,3 +87,35 @@ class Environment(ap.Model):
         mad = np.abs(np.subtract.outer(x, x)).mean()  # Mean absolute difference
         rmad = mad / np.mean(x)  # Relative mean absolute difference
         return 0.5 * rmad       
+    
+if __name__=='__main__':
+    benchmark_par={
+            'ag_num': 100,
+            'init_wealth': [100000, 30000, 3000],
+            'init_a_ratio': 0.1,
+            'init_b_ratio': 0.2,
+            'init_c_ratio': 0.7,
+            'tran_mat': [[0.2,0.7,0.1], [0.3,0.5,0.2], [0.1,0.8,0.1]],
+            'con_prop': [0.3, 0.2, 0.1],
+            'steps': 100,
+        }
+    atts=['gini','a_ratio','b_ratio','c_ratio']
+    df=pd.DataFrame([[0 for _ in range(len(atts))] for _ in range(101)], columns=atts, index=[i for i in range(101)])
+    model=Environment(parameters=benchmark_par)
+
+    for _ in range(10):
+        model.sim_reset()
+        result=model.run()
+        model_data=result.variables[list(result.variables)[0]]
+        for att in atts:
+            df[att]+=model_data[att]
+    
+    for att in atts: 
+        df[att]/=10
+    print(df.values)
+    df.to_csv('test\data\ModelBenchmark.csv')
+    
+    
+
+
+    pass

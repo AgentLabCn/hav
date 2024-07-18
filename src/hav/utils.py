@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from collections.abc import Iterable
 import agentpy as ap
-from scipy.stats import *
+from scipy.stats import norm
 
 def flatten(data):
     return search_depth(data)
