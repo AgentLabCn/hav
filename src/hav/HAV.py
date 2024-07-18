@@ -55,11 +55,11 @@ class HAV:
 
         elif method=='ks test':
             res, details = ks_test(
-                R=self.AgentLevel['O'],
-                B=self.AgentLevel['B']['O']
+                R=self.AgentLevel['I'],
+                B=self.AgentLevel['B']['I']
             )
 
-        self.Results['Agent'] = Result(method, res, O, details)
+        self.Results['Agent'] = Result(method, res, I, details)
         self.Results['Agent'].level='Agent'
 
     def calibration(self, I_range:dict[str:list[float]]):
