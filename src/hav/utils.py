@@ -1,9 +1,11 @@
-from itertools import chain
 import numpy as np
 import pandas as pd
 from collections.abc import Iterable
 import agentpy as ap
 from scipy.stats import norm
+from causallearn.search.ConstraintBased.PC import pc
+from numpy.linalg import matrix_rank
+from sklearn.decomposition import PCA
 
 def flatten(data):
     return search_depth(data)
@@ -50,3 +52,18 @@ def log_posterior(params, ABM, B, I_Range):
     if not np.isfinite(lp):
         return -np.inf
     return lp + log_likelihood(params, ABM, B, I_Range)
+
+def construct_causal_graph(data):
+    data = check_rank(data)
+    cg = pc(data)
+    graph = cg.G
+    return graph.graph
+
+def check_rank(data):
+    rank = matrix_rank(data)
+    if rank < data.shape[1]:
+        pca = PCA(n_components=rank)
+        data_reduced = pca.fit_transform(data)
+        data = pd.DataFrame(data_reduced).values
+
+    return data
