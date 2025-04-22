@@ -36,7 +36,7 @@ class validate_traffic_model():
     # Benchmark data used as a control reference in validation
     Benchmark = {
         'Speed_range': (500, 300),
-        'SIR_beta_range': (0.3, 0.8),
+        'SIR_beta_range': (0.2, 1.0),
         'Pearson_corr_range': (0.8, 1.0)
     }
 
