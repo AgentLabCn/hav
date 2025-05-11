@@ -1,16 +1,16 @@
-from traffic_model import TrafficModel
-from wealth_model import WealthModel
 import numpy as np
 import pandas as pd
+from scipy.stats import ks_2samp
+from traffic_model import TrafficModel
+from wealth_model import WealthModel
+
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-import sys
-import os
+import sys, os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.hav.HAV import HAV
-from scipy.stats import ks_2samp
 from src.hav.methods import causal_analysis
 
 '''This file presents two examples: hierarchical validation of the Traffic Model and Wealth Model, two ABM models, respectively'''
@@ -35,7 +35,7 @@ class validate_traffic_model():
 
     # Benchmark data used as a control reference in validation
     Benchmark = {
-        'Speed_range': (500, 300),
+        'Speed_range': (580, 300),
         'SIR_beta_range': (0.2, 1.0),
         'Pearson_corr_range': (0.8, 1.0)
     }

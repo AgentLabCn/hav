@@ -7,72 +7,73 @@
 
 **HAV** is a Python package for Hierarchical Agent-Based Model (ABM) Validation, designed to help users comprehensively validate agent-based models at three levels: Agent, Model, and Output. It integrates various statistical methods and machine learning techniques to ensure the accuracy and reliability of ABM simulations.
 
-| Validation Level | Supported Methods                          | Code Module          |
-|------------------|--------------------------------------------|----------------------|
-| **Agent Level**  | MSE Test, KS Test                          | `methods.MSE`        |
-| **Model Level**  | Causal Analysis, Bayesian Calibration      | `methods.bayesian`   |
-| **Output Level** | Variance/Skewness/Kurtosis, Sensitivity    | `methods.sobol`      |
-
 ### HAV Package
 | File          | Description                                                                 |
 |---------------|-----------------------------------------------------------------------------|
 | `HAV.py`      | Core validation logic, defines the `HAV` class and validation workflow      |
 | `methods.py`  | Implements validation methods (MSE test, KS test, causal analysis, etc.)    |
-| `utils.py`    | Provides utility functions (data flattening, ABM runner, Bayesian tools)    |
+| `utils.py`    | Provides utility functions (data flattening, Bayesian tools, etc.)    |
 
 ### Test Scripts
 | File               | Description                                                                 |
 |--------------------|-----------------------------------------------------------------------------|
-| `test_model.py`    | Defines an example ABM model (wealth transfer model) and generates benchmark data |
-| `test_hav.py`      | Demonstrates how to perform multi-level validation on an ABM model          |
+| `traffic_model.py`    | Defines a Traffic Flow Model as a case ABM model |
+| `wealth_model.py`      | Defines a Wealth Transfer Model as a case ABM model          |
+| `examples.py`      | Demonstrates how to perform multi-level validation on an ABM model          |
 
 
 ## Installation
-```bash
-# Install the base package
-pip install hav
 
-# Install full dependencies (including optional analysis tools)
-pip install agentpy==0.1.5 numpy==1.25.2 pandas==1.5.3 pgmpy==0.1.25 scipy==1.14.0 statsmodels==0.14.0 catboost>=1.2.5 emcee>=3.1.6 SALib>=1.5.0
-```
+### 1. Install the base package
+`pip install hav`
+
+### 2. Install full dependencies (including optional analysis tools)
+`pip install agentpy==0.1.5 numpy==1.25.2 pandas==1.5.3 pgmpy==0.1.25 scipy==1.14.0 statsmodels==0.14.0 catboost>=1.2.5 emcee>=3.1.6 SALib>=1.5.0`
+
 
 ## Quick Start
 
-### 1. Define an ABM Model (`test_model.py`)
-```python
-from test_model import Environment
+### 1. Determine a ABM model to be validated (Taking `traffic_model.py` as an example)
+`from traffic_model import TrafficModel`
+### 2. Set paramenters required in Traffic Model
+`    p = {    `
+`        'road_length': 50000,  `
+`        'speed_limit': 120 * 1000 / 60, `
+`        'num_vehicles': 50,  `
+`        'slow_down_prob': 0.15,  `
+`        'acceleration': 2.5 * 1000 / 60,  `
+`        'deceleration': 3.5 * 1000 / 60, `
+`        'vehicle_lengths': [4, 5, 6, 12],  `
+`        'vehicle_length_probs': [0.7, 0.15, 0.1, 0.05], `
+`        'steps': 100,`
+`        'observer_id': 10`
+`    }`
+### 3. Set Benchmark Data in validation
+`    Benchmark = {`
+`        'Speed_range': (580, 300),`
+`        'SIR_beta_range': (0.2, 1.0),`
+`        'Pearson_corr_range': (0.8, 1.0)`
+`    }`
+### 4. Declare the parameters required in each validation level
 
-# Define benchmark parameters
-benchmark_par = {
-    'ag_num': 100,
-    'init_wealth': [100000, 30000, 3000],
-    'tran_mat': [[0.2,0.7,0.1], [0.3,0.5,0.2], [0.1,0.8,0.1]],
-    'steps': 100
-}
+Declare the parameters required in Agent(A), Model(M) and Output(O) level, including Simulated data(S) and Benchmark data(B)
 
-# Initialize the model
-model = Environment(parameters=benchmark_par)
-```
+`    A = {'S': ['Speed'], 'B': ['Speed_range']}`
+`    M = {'S': ['Congestion'], 'B': ['SIR_beta_range']}`
+`    O = {'S': ['num_vehicles', 'Congestion'], 'B': ['Pearson_corr_range']}`
 
-### 2. Run Validation (`test_hav.py`)
-```python
-from HAV import HAV
+### 5. Create HAV and do validation level by level`
+`# 1 Create a HAV object`
+`my_hav = HAV(TrafficModel, p, A, M, O)`
 
-# Initialize the validator
-hav = HAV(model, benchmark_data)
+`# 2 Transmit validation methods that required in each level`
+`my_hav.validate('Agent', test_SPEED_dist)`
+`my_hav.validate('Model', test_CONGESTION_trans)`
+`my_hav.validate('Output', test_CORR_FLOW_CONGESTION)`
 
-# Perform agent-level validation (MSE test)
-hav.validate_agent_level(
-    method='MSE test',
-    I=['tran_mat', 'init_wealth'],
-    O=['ev_wealth']
-)
+Among them, `test_SPEED_dist`, `test_CONGESTION_trans` and `test_CORR_FLOW_CONGESTION` are validation methods that require user customization
 
-# View results
-for level, result in hav.Results.items():
-    if result:
-        result.print_result()
-```
+
 
 ## License
 This project is licensed under the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).
