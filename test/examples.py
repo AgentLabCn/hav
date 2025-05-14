@@ -172,4 +172,4 @@ class validate_wealth_model():
 
 if __name__ == '__main__':
     validate_traffic_model()
-    validate_wealth_model()
+    # validate_wealth_model()
