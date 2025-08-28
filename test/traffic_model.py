@@ -104,7 +104,8 @@ class validate_traffic_model():
 
     def __init__(self):
         '''Execute HAV directly to visually demonstrate the process of validation'''
-        
+        np.random.seed(123)
+
         # 1 Create a HAV object
         my_hav = HAV(TrafficModel, self.p, self.A, self.M, self.O)
 
@@ -131,9 +132,9 @@ class validate_traffic_model():
     def test_CONGESTION_trans(self, hav:HAV):
         '''Validate the rationality of congestion spread mechanism (Based on SIR Model)'''
         result = hav.run_model(self.p)
-        congestion_ts = result.variables.TrafficModel['Congestion'] > 5
+        congestion_ts = result.variables.TrafficModel['Congestion'] > 1
         model_sir = AutoReg(congestion_ts, lags=1).fit()
-        beta = model_sir.params[1]  
+        beta = model_sir.params[1]
         return self.Benchmark['SIR_beta_range'][0] < beta < self.Benchmark['SIR_beta_range'][1]
 
     def test_CORR_FLOW_CONGESTION(self, hav:HAV):

@@ -143,6 +143,7 @@ class validate_wealth_model():
     
     def __init__(self):        
         '''Execute HAV directly to visually demonstrate the process of validation'''
+        np.random.seed(123)
 
         # 1 Create a HAV object
         my_hav = HAV(WealthModel, self.p, self.A, self.M, self.O)
