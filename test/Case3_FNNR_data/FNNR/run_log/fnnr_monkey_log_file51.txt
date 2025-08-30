@@ -1,0 +1,11 @@
+Aging, Step 2: Agent,440,1.0128011996046342,0,aged to age category,1
+Death, Step 1: Agent,283,6.794281836063034,1,died
+Death, Step 1: Agent,576,5.022223962723698,1,died
+Death, Step 3: Agent,61,0.7646647353025744,1,died
+Aging, Step 3: Agent,53,1.0055291904272698,1,aged to age category,1
+Death, Step 1: Agent,612,15.936159903797467,1,died
+Death, Step 1: Agent,27,0.08789336364252992,0,died
+o age category,1
+Aging, Step 3: Agent,378,1.002978638879988,1,aged to age category,1
+Death, Step 1: Agent,660,0.026394462080045755,0,died
+Death, Step 3: Agent,340,0.9196950861162596,1,died

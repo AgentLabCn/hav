@@ -1,0 +1,5 @@
+Death, Step 1: Agent,473,0.44517016841729745,0,died
+Death, Step 1: Agent,726,9.419613809759728,0,died
+Death, Step 1: Agent,241,0.1473208948051981,1,died
+Death, Step 1: Agent,364,1.8651689002701426,1,died
+Death, Step 1: Agent,227,19.860249024599085,1,died

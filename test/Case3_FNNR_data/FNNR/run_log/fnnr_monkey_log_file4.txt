@@ -1,0 +1,91 @@
+Death, Step 1: Agent,435,1.1666486078467129,1,died
+Death, Step 1: Agent,452,7.433285259284237,0,died
+Death, Step 1: Agent,557,0.6400538657042534,0,died
+Aging, Step 2: Agent,163,3.0093260680008798,1,aged to age category,2
+Aging, Step 2: Agent,4,10.009798054882387,1,aged to age category,4
+Aging, Step 2: Agent,416,1.0075483750443495,0,aged to age category,1
+Death, Step 1: Agent,97,15.940085009240697,1,died
+Aging, Step 2: Agent,568,7.0036101027861974,1,aged to age category,3
+Aging, Step 2: Agent,322,1.009007979386831,1,aged to age category,1
+Aging, Step 2: Agent,737,1.0045828798227991,1,aged to age category,1
+Aging, Step 2: Agent,213,1.000142425816513,1,aged to age category,1
+Death, Step 2: Agent,267,0.30763338244836613,1,died
+Aging, Step 2: Agent,115,3.0074811934262144,0,aged to age category,2
+Aging, Step 2: Agent,731,1.001453465573467,0,aged to age category,1
+Aging, Step 2: Agent,350,7.010491482697372,1,aged to age category,3
+Aging, Step 2: Agent,264,10.000312096992097,1,aged to age category,4
+Aging, Step 2: Agent,151,3.0047667216663716,1,aged to age category,2
+Aging, Step 2: Agent,496,3.0096012918509274,0,aged to age category,2
+Death, Step 2: Agent,418,0.03454151631419067,0,died
+Aging, Step 3: Agent,438,10.000155991766995,0,aged to age category,4
+Aging, Step 2: Agent,455,10.008016561411626,1,aged to age category,4
+Aging, Step 3: Agent,521,10.013096986462813,1,aged to age category,4
+Aging, Step 3: Agent,357,1.004390198256252,0,aged to age category,1
+Aging, Step 3: Agent,93,10.011269554299123,0,aged to age category,4
+Aging, Step 3: Agent,14,1.0067061473744248,1,aged to age category,1
+Aging, Step 3: Agent,663,3.009949241874079,0,aged to age category,2
+Aging, Step 3: Agent,558,7.0133631284064855,0,aged to age category,3
+Aging, Step 3: Agent,3,3.008473546317634,0,aged to age category,2
+Aging, Step 3: Agent,141,1.008961638787176,0,aged to age category,1
+Aging, Step 3: Agent,203,3.005099470272819,0,aged to age category,2
+Aging, Step 3: Agent,293,3.011016231720018,1,aged to age category,2
+Aging, Step 3: Agent,619,3.009659827410605,0,aged to age category,2
+Aging, Step 3: Agent,604,1.0014116590011322,1,aged to age category,1
+Aging, Step 3: Agent,347,3.010871806013389,1,aged to age category,2
+Aging, Step 4: Agent,369,1.0032222178345847,0,aged to age category,1
+Aging, Step 4: Agent,307,1.0028613144201157,1,aged to age category,1
+Aging, Step 4: Agent,485,10.00940768502336,0,aged to age category,4
+Death, Step 4: Agent,314,12.306028896238914,1,died
+Death, Step 4: Agent,255,0.3595554732619719,1,died
+Death, Step 4: Agent,257,14.950269434219672,0,died
+Aging, Step 4: Agent,65,3.0125697407817067,0,aged to age category,2
+Aging, Step 4: Agent,328,1.007225171562783,0,aged to age category,1
+Death, Step 4: Agent,578,7.255011231297246,0,died
+Death, Step 4: Agent,300,15.19133269144727,0,died
+Death, Step 4: Agent,422,1.9480265252485565,0,died
+Aging, Step 4: Agent,550,10.002528306432556,0,aged to age category,4
+Aging, Step 4: Agent,296,10.008530692444163,1,aged to age category,4
+Aging, Step 4: Agent,232,1.0107505486789956,0,aged to age category,1
+Death, Step 4: Agent,391,2.955593389146273,1,died
+Aging, Step 5: Agent,596,1.0025713172664332,1,aged to age category,1
+Aging, Step 5: Agent,324,10.00823019129963,0,aged to age category,4
+Aging, Step 5: Agent,202,10.00830735318051,1,aged to age category,4
+Aging, Step 5: Agent,310,3.0066279384449723,1,aged to age category,2
+Aging, Step 5: Agent,667,25.005707951939733,1,aged to age category,5
+Aging, Step 5: Agent,66,3.009261446550711,0,aged to age category,2
+Aging, Step 5: Agent,109,25.013565298660467,1,aged to age category,5
+Aging, Step 5: Agent,525,3.0027207451364646,1,aged to age category,2
+Aging, Step 5: Agent,594,25.00723821901596,1,aged to age category,5
+Aging, Step 5: Agent,78,3.0034026400214513,1,aged to age category,2
+
+Aging, Step 5: Agent,691,7.0119185105525395,1,aged to age category,3
+Aging, Step 5: Agent,529,10.003088611094093,1,aged to age category,4
+Aging, Step 5: Agent,51,1.009255148830546,0,aged to age category,1
+Aging, Step 5: Agent,251,1.00123249391606,1,aged to age category,1
+Aging, Step 6: Agent,246,25.008326881152392,0,aged to age category,5
+Aging, Step 6: Agent,472,7.000084956549587,0,aged to age category,3
+Aging, Step 6: Agent,94,3.0003838647910324,1,aged to age category,2
+Death, Step 6: Agent,227,0.9093521432836116,0,died
+Aging, Step 6: Agent,490,3.011195896822595,1,aged to age category,2
+Aging, Step 6: Agent,432,3.0111539229558626,1,aged to age category,2
+Death, Step 6: Agent,104,22.977659820212544,0,died
+Aging, Step 6: Agent,532,1.0016924770912754,1,aged to age category,1
+Aging, Step 6: Agent,273,3.0031735057570548,0,aged to age category,2
+Aging, Step 6: Agent,638,10.00530158130734,1,aged to age category,4
+Aging, Step 6: Agent,697,1.0003139115973294,0,aged to age category,1
+Aging, Step 7: Agent,153,3.011806362520295,0,aged to age category,2
+Aging, Step 7: Agent,522,1.0059578944159768,0,aged to age category,1
+Aging, Step 7: Agent,598,3.0035170979547883,1,aged to age category,2
+Aging, Step 6: Agent,228,1.0026486039242721,0,aged to age category,1
+Aging, Step 7: Agent,158,7.00076219146597,1,aged to age category,3
+Aging, Step 7: Agent,60,3.009036637295193,0,aged to age category,2
+Aging, Step 7: Agent,305,3.003753207846203,0,aged to age category,2
+Aging, Step 7: Agent,499,1.0045552451224655,1,aged to age category,1
+Aging, Step 7: Agent,11,10.012712418413898,0,aged to age category,4
+Aging, Step 7: Agent,348,1.0036031935279903,0,aged to age category,1
+Aging, Step 7: Agent,45,1.0063614975243038,1,aged to age category,1
+Aging, Step 7: Agent,6,7.000352440047859,0,aged to age category,3
+Aging, Step 7: Agent,517,1.0053445542908692,0,aged to age category,1
+Aging, Step 7: Agent,6,3.0063487620962293,0,aged to age category,2
+Aging, Step 7: Agent,200,10.000966272868393,0,aged to age category,4
+Aging, Step 7: Agent,251,3.0069702772128553,1,aged to age category,2
