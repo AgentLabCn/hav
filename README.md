@@ -19,9 +19,12 @@ This package integrates a diverse set of statistical methods and machine learnin
 ### Test Scripts
 | File               | Description                                                                 |
 |--------------------|-----------------------------------------------------------------------------|
-| `traffic_model.py`    | Defines a Traffic Flow Model as a case ABM model. This model simulates the movement of vehicles on a road network, taking into account factors such as road length, speed limit, number of vehicles, and driver behavior. It serves as a practical example for users to understand how to apply HAV to a real - world scenario. |
-| `wealth_model.py`      | Defines a Wealth Transfer Model as a case ABM model. This model simulates the transfer of wealth between agents in an economic system, considering factors such as income, savings, and investment. It demonstrates the flexibility of HAV in validating different types of ABMs.        |
-| `examples.py`      | Demonstrates how to perform multi - level validation on an ABM model. It provides step - by - step instructions and code snippets to guide users through the validation process, making it easier for them to get started with HAV.     |
+| `Case1_traffic_data/`    | Stores model code and related data for the Traffic Flow ABM Case. It contains all files required to run the Traffic Flow Model, providing raw resources for the model’s operation and validation. |
+| `Case2_wealth_data/`      | Stores model code and related data for the Wealth Transfer ABM Case. It includes some associated data, supporting the operation of the Wealth Transfer Model.        |
+| `Case3_FNNR_data/`      | Stores model code and related data for the FNNR ABM Case. The FNNR model (focused on simulating Guizhou golden monkey population demographics and movement) is derived from https://github.com/jrmak/FNNR-ABM-Primate.git, and this folder stores the original model code and associated data.    |
+| `Case1_traffic_model.py`      | Contains validation code for the Traffic Flow ABM Case. It implements the multi-level validation process for the Traffic Flow Model and outputs validation results.  |
+| `Case2_wealth_model.py`      | Contains validation code for the Wealth Transfer ABM Case. It implements the multi-level validation process for the Wealth Transfer Model and outputs validation results.    |
+| `Case3_FNNR_model.py`      | Contains validation demonstration code for the FNNR ABM Case. Note that the actual FNNR model validation code is stored in the repository https://github.com/AgentLabCn/hav-example.git. This file only serves as a formal model wrapper: we have pre-run the FNNR model and stored results in CSV files; the class defined here only outputs pre-run results to efficiently demonstrate the validation process.   |
 
 
 ## Installation
@@ -41,10 +44,10 @@ It is recommended to create a virtual environment before installing the dependen
 
 ## Quick Start
 
-### 1. Determine a ABM model to be validated (Taking `traffic_model.py` as an example)
-First, you need to import the ABM model you want to validate. In this example, we use the TrafficModel from the `traffic_model.py` file:
+### 1. Determine a ABM model to be validated (Taking `Case1_traffic_model.py` as an example)
+First, you need to import the ABM model you want to validate. In this example, we use the TrafficModel from the `Case1_traffic_data/traffic.py` file:
 
-`from traffic_model import TrafficModel`
+`from Case1_traffic_data.traffic import TrafficModel`
 
 ### 2. Set paramenters required in Traffic Model
 Next, you need to define the parameters for the TrafficModel. These parameters determine the initial conditions and behavior of the model. Here is an example of setting the parameters for the traffic model:

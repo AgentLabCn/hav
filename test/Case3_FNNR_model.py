@@ -15,7 +15,7 @@ class FNNR_data(ap.Model):
     '''
     We have run the model and stored the results in CSV files. 
     In order to efficiently demonstrate the validation process, we design this class as a formal model that only outputs the results of the run.
-    If you need to view the detailed running process, you can do so at test/Case3_FNNR_data/FNNR/ABM Create a virtual environment to execute validation.py (please ensure that Mesa==0.8.3 and Tornado==4.5.2 in the virtual environment)
+    If you need to view the detailed running process, you can find specific case codes on https://github.com/AgentLabCn/hav-example.git
     '''
     def get_data(self, level:str):
         if level == 'agent':
